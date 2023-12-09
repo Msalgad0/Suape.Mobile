@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 
-export default function gerador() {
+export default function Gerador({ navigation, route }) {
+
+    const { id } = route.params;
 
     const [nome, setNome] = useState("");
 
@@ -21,6 +23,36 @@ export default function gerador() {
     const TelefoneChange = (Telefone) => {
         setTelefone(Telefone);
     };
+
+    const handlePostRequest = async () => {
+        try {
+          const url = 'https://api-mobile-25hv.onrender.com/api/Voucher';
+    
+          const data = {
+            // Seus dados para enviar no corpo da requisição
+            "userId" : id
+          };
+    
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+    
+          if (response.ok) {
+            const json = await response.json();
+            alert(`Voucher criado com sucesso ! ${json.token}`);
+            navigation.navigate('Vouchers', { id: id });
+          } else {
+            // Requisição falhou, faça algo com base no código de status
+            alert("Erro ao criar voucher !");
+          }
+        } catch (error) {
+          console.error('Erro ao processar a requisição:', error);
+        }
+      };
 
     return (
         <View>
@@ -45,7 +77,7 @@ export default function gerador() {
                 value={telefone}
             />
 
-            <Button title="Gera Voucher" />
+            <Button title="Gera Voucher" onPress={() => handlePostRequest()} />
         </View>
     );
 }

@@ -3,7 +3,7 @@ import { View, Text, TextInput,Button,StyleSheet,TouchableOpacity } from "react-
 import {Ionicons} from '@expo/vector-icons';
 
 
-export default function Form() {
+export default function Form({ navigation }) {
   const [login, setLogin] = useState("");
 
    const LoginName = (Login) => {
@@ -17,7 +17,38 @@ export default function Form() {
     setSenha(Senha);
   };
   
-  const [hidePass,setHidePass] =useState(true);
+  const [hidePass,setHidePass] = useState(true);
+
+  const handlePostRequest = async () => {
+    try {
+      const url = 'https://api-mobile-25hv.onrender.com/api/Login';
+
+      const data = {
+        // Seus dados para enviar no corpo da requisição
+        "userName" : login,
+        "pass": senha,
+      };
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const json = await response.json();
+        navigation.navigate('Gerador', { id: json.id });
+        
+      } else {
+        // Requisição falhou, faça algo com base no código de status
+        alert("Usuário não encontrado !");
+      }
+    } catch (error) {
+      console.error('Erro ao processar a requisição:', error);
+    }
+  };
 
   return (
     <View style={StyleSheet.container}>
@@ -51,7 +82,7 @@ export default function Form() {
 
         </TouchableOpacity>
 
-        <Button title="Login"/>
+        <Button title="Login"  onPress={() => handlePostRequest()}/>
       </View>
     </View>
   );
