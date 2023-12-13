@@ -43,7 +43,7 @@ export default function Gerador({ navigation, route }) {
     
           if (response.ok) {
             const json = await response.json();
-            alert(`Voucher criado com sucesso ! ${json.token}`);
+            alert(`Voucher criado com sucesso ! ${json.voucher}`);
             navigation.navigate('Vouchers', { id: id });
           } else {
             // Requisição falhou, faça algo com base no código de status

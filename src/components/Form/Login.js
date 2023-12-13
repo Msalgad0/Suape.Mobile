@@ -51,12 +51,13 @@ export default function Form({ navigation }) {
   };
 
   return (
-    <View style={StyleSheet.container}>
+    <View style={styles.container}>
 
-      <View style={StyleSheet.inputArea}>
+      <View style={Form.inputArea}>
 
         <Text>Login</Text>
         <TextInput
+          style={styles.input}
           onChangeText={LoginName}
           placeholder="Digite seu usuario"
           value={login}
@@ -82,7 +83,9 @@ export default function Form({ navigation }) {
 
         </TouchableOpacity>
 
-        <Button title="Login"  onPress={() => handlePostRequest()}/>
+        <Button 
+        title="Login" 
+        onPress={() => handlePostRequest()}/>
       </View>
     </View>
   );
@@ -91,22 +94,22 @@ export default function Form({ navigation }) {
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:'#fff',
+    backgroundColor:'#000',
     alignItems:'center',
     justifyContent:'center',
   },
   inputArea:{
     flexDirection:'row',
     width:'90%',
-    backgroundColor:'#121212',
+    backgroundColor:'#fff',
     boderRadius:'5',
-    height:'50',
+    height:'5',
     alignItems:'center'
   },
   input:{
     width:'85%',
     height:'50',
-    color:'black',
+    backgroundColor: '#fff',
     padding:8,
     fontSize:18
   },
@@ -115,6 +118,5 @@ const styles = StyleSheet.create({
     height:50,
     justifyContente:'center',
     alignItems:'center'
-  }
-
+  },
 });
