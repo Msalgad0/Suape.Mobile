@@ -66,11 +66,11 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     width: '100%',
-    backgroundColor: '#000'
+    backgroundColor: '#fff'
   },
   box: {
       padding: '20%', 
-      backgroundColor: '#000',
+      backgroundColor: '#181A1B',
     },
   list: {
       width: '100%',
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
 
   text: {
       marginTop: '20%',
-      color: '#fff'
+      color: '#fff',
+      alignSelf: 'center'
   }
 });
