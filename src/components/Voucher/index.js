@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {View, Text, FlatList } from "react-native";
+import {View, 
+        Text, 
+        FlatList, 
+        StyleSheet
+      } from "react-native";
 
 export default function Vouchers({ navigation, route }){
     const [voucherData, setVoucherData] = useState([]);
@@ -33,18 +37,20 @@ export default function Vouchers({ navigation, route }){
   }, []);
 
   const renderItem = ({ item }) => (
-    <View>
-      <Text>Voucher: {item.voucher_token}</Text>
-      {/* Outros elementos do item */}
+    <View style={styles.box}>
+      <Text style={{ color: '#fff' }}>{item.voucher_token}</Text>
     </View>
   );
 
   return (
-    <View>
+    <View style={styles.container}>
+      <Text style={styles.text}>Meus vouchers</Text> 
       {loading ? (
         <Text>Carregando...</Text>
       ) : (
         <FlatList
+          showsVerticalScrollIndicator={false}
+          style={styles.list}
           data={voucherData}
           renderItem={renderItem}
           keyExtractor={(item) => item.voucher_id.toString()}
@@ -53,3 +59,25 @@ export default function Vouchers({ navigation, route }){
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+    width: '100%',
+    backgroundColor: '#000'
+  },
+  box: {
+      padding: '20%', 
+      backgroundColor: '#000',
+    },
+  list: {
+      width: '100%',
+  },
+
+  text: {
+      marginTop: '20%',
+      color: '#fff'
+  }
+});
