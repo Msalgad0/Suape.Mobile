@@ -69,5 +69,11 @@ export const styles = StyleSheet.create({
       marginBottom: '5%',
       marginTop: '2%',
       fontSize: 16  
+    },
+    validLink:{
+      color:"#f68934",
+      marginBottom: '5%',
+      marginTop: '2%',
+      fontSize: 16  
     }
   });

@@ -16,12 +16,26 @@ export default function Form({ navigation }) {
   const Senha = (Senha) => {
     setSenha(Senha);
   };
+
+  const [validMsg, setValidMsg] = useState("");
   
   const [hidePass,setHidePass] = useState(true);
 
   const handlePostRequest = async () => {
     try {
+      setValidMsg("");
       const url = 'https://api-mobile-25hv.onrender.com/api/Login';
+
+      if(login.length < 4)
+      {
+        setValidMsg('Login inválido !');
+        return 0;
+      } 
+      else if(senha.length < 4)
+      {
+        setValidMsg('senha inválida !');
+        return 0;
+      }
 
       const data = {
         // Seus dados para enviar no corpo da requisição
@@ -43,10 +57,10 @@ export default function Form({ navigation }) {
         
       } else {
         // Requisição falhou, faça algo com base no código de status
-        alert("Usuário não encontrado !");
+        setValidMsg("Usuário não encontrado !");
       }
     } catch (error) {
-      console.error('Erro ao processar a requisição:', error);
+      setValidMsg('Erro ao processar a requisição !');
     }
   };
 
@@ -91,7 +105,8 @@ export default function Form({ navigation }) {
         <Pressable style={styles.press} onPress={() => handlePostRequest()}>
         <Text style={styles.textButton}>Entrar</Text>
         </Pressable>
-        
+
+        <Text style={styles.validLink}>{validMsg}</Text>
         <Text style={styles.links}>Nao tenho uma conta</Text>
         <Text style={styles.links}>Esqueci minha senha</Text>
 
