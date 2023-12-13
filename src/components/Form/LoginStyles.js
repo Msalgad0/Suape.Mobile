@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
       width:'100%',
       position: 'relative',
       padding: 16,
-      backgroundColor: "#181A1B"
+      backgroundColor: "#fff"
     },
     inputArea:{
       flex: 1,
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
       marginBottom: 16,
       backgroundColor: '#fff',
       borderRadius: 5,
-      fontSize: 24
+      fontSize: 24,
     },
     press:{
       width: '90%',
@@ -48,14 +48,14 @@ export const styles = StyleSheet.create({
       alignItems:'center'
     },
     text: {
-      color: "#fff",
+      color: "#000",
       position: 'relative',
       alignSelf: 'flex-start',
       marginLeft: '5%',
       marginBottom: '2%',
       fontSize: 18
     },
-    textButton: {
+    textPress: {
       color: "#fff",
       position: 'relative',
       alignSelf: 'center',
@@ -74,6 +74,6 @@ export const styles = StyleSheet.create({
       color:"#f68934",
       marginBottom: '5%',
       marginTop: '2%',
-      fontSize: 16  
+      fontSize: 20  
     }
   });

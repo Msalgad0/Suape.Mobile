@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Pressable, TouchableOpacity, Image } from "react-native";
 import {Ionicons} from '@expo/vector-icons';
 import { styles } from './LoginStyles';
+const icon = require('../../../assets/SuapeIcon.png');
 
 export default function Form({ navigation }) {
   const [login, setLogin] = useState("");
@@ -23,7 +24,7 @@ export default function Form({ navigation }) {
 
   const handlePostRequest = async () => {
     try {
-      setValidMsg("");
+      setValidMsg("carregando.....");
       const url = 'https://api-mobile-25hv.onrender.com/api/Login';
 
       if(login.length < 4)
@@ -52,6 +53,7 @@ export default function Form({ navigation }) {
       });
 
       if (response.ok) {
+        setValidMsg('Login efetuado com sucesso !');
         const json = await response.json();
         navigation.navigate('Gerador', { id: json.id });
         
@@ -68,9 +70,7 @@ export default function Form({ navigation }) {
     <View style={styles.container}>
       <Image
         style={styles.Logo}
-        source={{
-          uri: 'https://conectasuape.netlify.app/img/logo.png',
-        }}
+        source={icon}
       />
       <View style={styles.inputArea}>
 
@@ -78,7 +78,7 @@ export default function Form({ navigation }) {
         <TextInput
           style={styles.input}
           onChangeText={LoginName}
-          placeholder="Insira o seu email aqui"
+          placeholder="Insira o seu login aqui"
           value={login}
         />
 
@@ -94,16 +94,16 @@ export default function Form({ navigation }) {
         <TouchableOpacity styles={styles.icon} onPress={() => setHidePass(!hidePass)}>
           { hidePass?
           
-          <Ionicons name="eye-off" color="white" size={25}/>
+          <Ionicons name="eye-off" color="black" size={25}/>
           :
-          <Ionicons name="eye" color="white" size={25}/>
+          <Ionicons name="eye" color="black" size={25}/>
 
         }
 
         </TouchableOpacity>
 
         <Pressable style={styles.press} onPress={() => handlePostRequest()}>
-        <Text style={styles.textButton}>Entrar</Text>
+        <Text style={styles.textPress}>Entrar</Text>
         </Pressable>
 
         <Text style={styles.validLink}>{validMsg}</Text>
