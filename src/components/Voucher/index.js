@@ -38,7 +38,7 @@ export default function Vouchers({ navigation, route }){
 
   const renderItem = ({ item }) => (
     <View style={styles.box}>
-      <Text style={{ color: '#fff' }}>{item.voucher_token}</Text>
+      <Text style={styles.voucherText}>{item.voucher_token}</Text>
     </View>
   );
 
@@ -71,6 +71,10 @@ const styles = StyleSheet.create({
   box: {
       padding: '20%', 
       backgroundColor: '#181A1B',
+      maxHeight: '20%',
+      maxWidth: '90%',
+      marginLeft: '5%',
+      borderRadius: 20
     },
   list: {
       width: '100%',
@@ -78,7 +82,14 @@ const styles = StyleSheet.create({
 
   text: {
       marginTop: '20%',
-      color: '#fff',
-      alignSelf: 'center'
+      color: '#000',
+      alignSelf: 'center',
+      marginBottom: '5%'
+  },
+  voucherText:{
+    flex: 1,
+    alignSelf: 'center',
+    color: '#fff',
+    fontSize: 20
   }
 });
