@@ -1,0 +1,19 @@
+appId: null
+---
+- tapOn: "Digite seu usuario"
+- inputText: "teste"
+- tapOn: "Digite sua senha"
+- inputText: "teste"
+- tapOn:
+    text: "LOGIN"
+    index: 1
+- tapOn: "Seu Usuario"
+- inputText: "teste"
+- tapOn: "Seu email"
+- inputText: "teste"
+- tapOn: "Seu telefone"
+- inputText: "999999999"
+- tapOn: "GERA VOUCHER"
+- tapOn:
+    id: "android:id/button1"
+- "scroll"
