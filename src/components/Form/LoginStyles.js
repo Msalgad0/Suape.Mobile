@@ -13,8 +13,8 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       width:'100%',
       position: 'relative',
-      padding: 16,
-      backgroundColor: "#fff"
+      padding: 20,
+      backgroundColor: "#4682B4"
     },
     inputArea:{
       flex: 1,
@@ -27,14 +27,14 @@ export const styles = StyleSheet.create({
     },
     input:{
       width: '90%',
-      marginBottom: 16,
-      backgroundColor: '#fff',
+      marginBottom: 10,
+      backgroundColor: '#FFFF',
       borderRadius: 5,
-      fontSize: 24,
+      fontSize: 18,
     },
     press:{
       width: '90%',
-      marginBottom: 16,
+      marginBottom: 10,
       height: '10%',
       backgroundColor: '#fff',
       borderRadius: 5,
@@ -61,7 +61,7 @@ export const styles = StyleSheet.create({
       alignSelf: 'center',
       marginBottom: '2%',
       marginTop: '2%',
-      fontSize: 24,
+      fontSize: 22,
       fontWeight: 'bold'
     },
     links:{
@@ -71,9 +71,9 @@ export const styles = StyleSheet.create({
       fontSize: 16  
     },
     validLink:{
-      color:"#f68934",
+      color:"#FFFF",
       marginBottom: '5%',
       marginTop: '2%',
-      fontSize: 20  
+      fontSize: 18, 
     }
   });

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import { styles } from './indexStyle';
+
 
 export default function Gerador({ navigation, route }) {
 
@@ -55,29 +57,30 @@ export default function Gerador({ navigation, route }) {
       };
 
     return (
-        <View>
-            <Text>Nome</Text>
-            <TextInput
+        <View style={styles.container}>
+            <Text style={styles.text}>Nome</Text>
+            <TextInput  style={styles.input}
                 onChangeText={NomeChange}
-                placeholder="Seu Usuario"
+                placeholder="Seu nome"
                 value={nome}
             />
 
-            <Text>Email</Text>
-            <TextInput
+            <Text style={styles.text}>Email</Text>
+            <TextInput  style={styles.input}
                 onChangeText={EmailChange}
                 placeholder="Seu email"
                 value={email}
             />
 
-            <Text>Telefone</Text>
-            <TextInput
+            <Text style={styles.text}>Telefone</Text>
+            <TextInput  style={styles.input}
                 onChangeText={TelefoneChange}
                 placeholder="Seu telefone"
                 value={telefone}
             />
 
-            <Button title="Gera Voucher" onPress={() => handlePostRequest()} />
+          
+            <Button style={styles.Button} title="Gera Voucher" onPress={() => handlePostRequest()} />
         </View>
     );
 }
