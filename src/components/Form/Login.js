@@ -102,7 +102,7 @@ export default function Form({ navigation }) {
 
         </TouchableOpacity>
 
-        <Pressable style={styles.press} onPress={() => handlePostRequest()}>
+        <Pressable style={styles.press} onPress={handlePostRequest}>
         <Text style={styles.textPress}>Entrar</Text>
         </Pressable>
 

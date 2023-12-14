@@ -8,8 +8,17 @@ export const styles = StyleSheet.create({
       width:'100%',
       position: 'relative',
       padding: 20,
-      backgroundColor: "#4682B4",
+      backgroundColor: "#fff",
       
+    },
+    textPress: {
+      color: "#fff",
+      position: 'relative',
+      alignSelf: 'center',
+      marginBottom: '2%',
+      marginTop: '2%',
+      fontSize: 22,
+      fontWeight: 'bold'
     },
      text: {
       color: "#000",
@@ -24,12 +33,19 @@ export const styles = StyleSheet.create({
     },
      input:{
       width: '90%',
-      marginBottom: 10,
+      marginBottom: 15,
       backgroundColor: '#FFFF',
       borderRadius: 5,
       fontSize: 18,
     },
    button:{
     lineHeight: 20,
+    width: '90%',
+      marginBottom: 10,
+      height: '8%',
+      backgroundColor: '#fff',
+      borderRadius: 5,
+      backgroundColor: '#4F4F4F',
+      marginTop: '2%'
    }
 });

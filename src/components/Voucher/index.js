@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   box: {
       padding: '20%', 
-      backgroundColor: '#181A1B',
+      backgroundColor: '#4F4F4F',
       maxHeight: '20%',
       maxWidth: '90%',
       marginLeft: '5%',

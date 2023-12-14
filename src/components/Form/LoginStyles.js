@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
       width:'100%',
       position: 'relative',
       padding: 20,
-      backgroundColor: "#4682B4"
+      backgroundColor: "#fff"
     },
     inputArea:{
       flex: 1,
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
     press:{
       width: '90%',
       marginBottom: 10,
-      height: '10%',
+      height: '12%',
       backgroundColor: '#fff',
       borderRadius: 5,
       backgroundColor: '#4F4F4F',
@@ -71,7 +71,7 @@ export const styles = StyleSheet.create({
       fontSize: 16  
     },
     validLink:{
-      color:"#FFFF",
+      color:"#ff0000",
       marginBottom: '5%',
       marginTop: '2%',
       fontSize: 18, 

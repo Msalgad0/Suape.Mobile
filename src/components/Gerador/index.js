@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, Button, Pressable, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { styles } from './indexStyle';
 
@@ -26,10 +26,26 @@ export default function Gerador({ navigation, route }) {
         setTelefone(Telefone);
     };
 
+    const [validMsg, setValidMsg] = useState("");
+
     const handlePostRequest = async () => {
         try {
           const url = 'https://api-mobile-25hv.onrender.com/api/Voucher';
-    
+          if(nome.length < 4)
+          {
+            setValidMsg("Nome inválido !");
+            return 0;
+          }
+          else if (email.length < 4 || !email.includes('@'))
+          {
+            setValidMsg("Email inválido !");
+            return 0;
+          }
+          else if(telefone.length < 9)
+          {
+            setValidMsg("Telefone inválido !");
+            return 0;
+          }
           const data = {
             // Seus dados para enviar no corpo da requisição
             "userId" : id
@@ -79,8 +95,11 @@ export default function Gerador({ navigation, route }) {
                 value={telefone}
             />
 
-          
-            <Button style={styles.Button} title="Gera Voucher" onPress={() => handlePostRequest()} />
-        </View>
+        <Text style={styles.text}>{validMsg}</Text>
+        
+        <Pressable style={styles.button} onPress={handlePostRequest}>
+        <Text style={styles.textPress}>Gera Voucher</Text>
+        </Pressable>
+            </View>
     );
 }
