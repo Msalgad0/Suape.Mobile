@@ -1,10 +1,27 @@
-import React, { useState } from "react";
-import { View, Text, TextInput, Pressable, TouchableOpacity, Image } from "react-native";
+import React, { useEffect, useState } from "react";
+import {PermissionsAndroid, Platform, View, Text, TextInput, Pressable, TouchableOpacity, Image } from "react-native";
 import {Ionicons} from '@expo/vector-icons';
 import { styles } from './LoginStyles';
 const icon = require('../../../assets/SuapeIcon.png');
 
 export default function Form({ navigation }) {
+
+  useEffect(() => {
+    requestLocationPermission();
+  });
+
+  const requestLocationPermission = async () => {
+    try {
+      if (Platform.OS === 'android') {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+        );
+        return 0;
+      }
+    } catch (err) {
+    }
+  };
+
   const [login, setLogin] = useState("");
 
    const LoginName = (Login) => {
@@ -55,7 +72,8 @@ export default function Form({ navigation }) {
       if (response.ok) {
         setValidMsg('Login efetuado com sucesso !');
         const json = await response.json();
-        navigation.navigate('Gerador', { id: json.id });
+        navigation.navigate('Home', { id: json.id });
+        return 0;
         
       } else {
         // Requisição falhou, faça algo com base no código de status

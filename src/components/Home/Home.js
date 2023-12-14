@@ -1,11 +1,13 @@
 import React from "react"
-import {View, Text, StyleSheet, Image, FlatList} from "react-native"
+import {View, Text, StyleSheet, Pressable, Image, FlatList} from "react-native"
 
-export default function Home(){
+export default function Home({ navigation, route }){
+    
+    const { id } = route.params;
 
     const renderItem = ({ item }) => (
         <>
-        <Image  style={styles.img} source={{uri: item.img}}></Image>
+        <Image style={styles.img} source={{uri: item.img}}></Image>
         <View style={styles.viewList}>
         <Text style={styles.listText}>{item.title}</Text>
         </View>
@@ -34,6 +36,14 @@ export default function Home(){
           title: 'Restaurantes',
         }
       ];
+
+      const handleCadastro = () => {
+        // Navegar para outra tela
+        navigation.navigate('Gerador', { id: id });
+      };
+      const handleVouchers = () => {
+        navigation.navigate('Vouchers', { id: id });
+      }
     
       return (
         <View style={styles.container}>
@@ -44,6 +54,19 @@ export default function Home(){
               renderItem={renderItem}
               keyExtractor={(item) => item.id.toString()}
             />
+            <View style={styles.navbar}>
+
+            <Pressable style={styles.press} 
+            onPress={handleCadastro}>
+          <Text style={styles.textPress}>New Voucher</Text>
+          </Pressable>
+
+          <Pressable style={styles.press}
+          onPress={handleVouchers}>
+          <Text style={styles.textPress}>Vouchers</Text>
+          </Pressable>
+
+            </View>
         </View>
       );
 }
@@ -51,6 +74,27 @@ export default function Home(){
 const styles = StyleSheet.create({
     FlatList: {
     maxHeight: '85%'
+    },
+    press: {      
+      width: '23%',
+      marginBottom: 10,
+      height: '70%',
+      backgroundColor: '#fff',
+      borderRadius: 5,
+      backgroundColor: '#181A1B',
+      marginTop: '2%'
+    },
+    textPress:{
+      color: "#fff"
+    },
+    navbar: {
+      backgroundColor: '#181A1B',
+      height: "12%",
+      width: '100%',
+      marginBottom: '-9%',
+      flexDirection: 'row', // Alinha os itens horizontalmente
+      justifyContent: 'space-around', // Distribui o espaço entre os itens
+      padding: 16,
     },
     container:{
         flex:1,

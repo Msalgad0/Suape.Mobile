@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
       maxHeight: '20%',
       maxWidth: '90%',
       marginLeft: '5%',
+      marginBottom: '2%',
       borderRadius: 20
     },
   list: {
