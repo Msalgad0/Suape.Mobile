@@ -27,7 +27,8 @@ App.js: arquivo principal -> rotas.
 
 # Rodando  a aplicação Mobile
 navegue até o diretório /Suape.Mobile e execute  npm i e depois  npx expo start
-escanei o qrcode no app expo para visualizar o aplicativo ou utilize um emulador disponibilizado pelo android studio.
+
+agora é só escanear o qrcode mostrado no terminal no app expo para visualizar o aplicativo ou utilize um emulador disponibilizado pelo android studio.
 
 # Uso de Recursos de Hardware
 O aplicativo faz uso de recursos de hardware. Certifique-se de conceder as permissões necessárias quando solicitado.
