@@ -12,6 +12,7 @@ Recursos de Hardware: Localização
 Certifique-se de ter as seguintes ferramentas instaladas:
 
 Node.js
+Expo go
 
 # Estrutura do Projeto mobile
 O projeto está organizado da seguinte maneira:
@@ -24,8 +25,9 @@ O projeto está organizado da seguinte maneira:
 
 App.js: arquivo principal -> rotas.
 
-# Configuração do Mobile
-navegue até o diretório /Suape.Mobile e execute  npm i e depois  npx expo start.
+# Rodando  a aplicação Mobile
+navegue até o diretório /Suape.Mobile e execute  npm i e depois  npx expo start
+escanei o qrcode no app expo para visualizar o aplicativo ou utilize um emulador disponibilizado pelo android studio.
 
 # Uso de Recursos de Hardware
 O aplicativo faz uso de recursos de hardware. Certifique-se de conceder as permissões necessárias quando solicitado.
